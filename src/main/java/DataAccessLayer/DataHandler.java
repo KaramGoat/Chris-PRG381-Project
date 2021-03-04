@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 //import java.util.logging.Level;
 //import java.util.logging.Logger;
 /**
@@ -17,8 +19,17 @@ import java.sql.Statement;
  * @author Christopher
  */
 public class DataHandler {
-    String connectionString = "jdbc:ucanaccess://DeliciousCatering.accdb";
-    Connection conn;
+    private String connectionString = "jdbc:ucanaccess://DeliciousCatering.accdb";
+    private Connection conn;
+
+    public String getConnectionString() {
+        return connectionString;
+    }
+
+    public void setConnectionString(String connectionString) {
+        this.connectionString = connectionString;
+    }
+    
 
     public DataHandler(String connectionString) {
         this.connectionString=connectionString;
@@ -27,18 +38,27 @@ public class DataHandler {
     public DataHandler() {
     }
        
-    public void CreateConnection(){
+    private boolean CreateConnection(){
         try {
             conn =DriverManager.getConnection(connectionString);
             System.out.println("Connection Successfull");
+            return true;
            
         } catch (SQLException ex) {
             System.out.println("Connection Error:\n"+ex.getMessage());
+            return false;
         }
     }
     
-    public void CloseConnection() throws SQLException{
-         conn.close();
+    private boolean CloseConnection() {
+        try {
+            conn.close();
+            System.out.println("Connection Close Successfull");
+            return true;
+        } catch (SQLException ex) {
+            System.out.println("Connection Close Error:\n"+ex.getMessage());
+            return false;
+        }
     }
     
     //---------------------------------
@@ -46,33 +66,45 @@ public class DataHandler {
     //---------------------------------
     
     
-    public ResultSet GetResultSet(String selectStatement){
+    public ResultSet GetQueryResultSet(String selectStatement){
         
+        boolean connectionCreated = CreateConnection();
         ResultSet result =null;
-        try {
-            Statement statement = conn.createStatement();
-            result = statement.executeQuery(selectStatement);
-        } catch (SQLException ex) {
-            System.out.println("Error: "+ex.getMessage());
+        if (connectionCreated==true) {
+            try {
+                Statement statement = conn.createStatement();
+                result = statement.executeQuery(selectStatement);
+            } catch (SQLException ex) {
+                System.out.println("Error: "+ex.getMessage());
+            }
+            CloseConnection();
         }
-               
-        return result;
+        return result;             
     }
        
     //---------------------------------
     //Data handler input
     //---------------------------------
     
-    public void Insert(String insertStatement){
-        Statement statement;
-        try {
-            statement = conn.createStatement();
-            statement.executeUpdate(insertStatement);
-            System.out.println("Row Successfully Inserted");
-        } catch (SQLException ex) {
-            System.out.println("Error: "+ex.getMessage());
+    //Use this method for Insert, Update or Delete SQL statements
+    public boolean ExecuteNonQuery(String insertUpdateDeleteStatement){
+        boolean connectionCreated = CreateConnection();
+        if (connectionCreated==true) {
+            Statement statement;
+            try {
+                statement = conn.createStatement();
+                statement.executeUpdate(insertUpdateDeleteStatement);   
+                System.out.println("Operation successful");
+                return true;
+            } catch (SQLException ex) {
+                System.out.println("Error: "+ex.getMessage());
+                CloseConnection();
+                return false;
+            }        
         }
-        
+        else{
+            return false;
+        }       
     }
     
     
