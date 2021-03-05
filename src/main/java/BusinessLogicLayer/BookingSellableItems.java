@@ -9,14 +9,14 @@ package BusinessLogicLayer;
  *
  * @author Kyle Opperman
  */
-public class EventSellableItems 
+public class BookingSellableItems 
 {
     int event_id;
     int eventitemid;
     int quantity;
     double discount;
     
-    public EventSellableItems(int event_id, int eventitemid, int quantity, double discount)
+    public BookingSellableItems(int event_id, int eventitemid, int quantity, double discount)
     {
        this.event_id = event_id;
        this.eventitemid = eventitemid;

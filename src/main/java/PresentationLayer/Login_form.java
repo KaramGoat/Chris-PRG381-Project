@@ -146,7 +146,7 @@ public class Login_form extends javax.swing.JFrame {
                 txt_Password.setText(null);
                 
                 JOptionPane.showMessageDialog(null,"Login successfull welcome "+ username +"");
-                frmMain cj = new frmMain();
+                Main_Menu cj = new Main_Menu();
                 cj.setVisible(true);
                 dispose();
             }
