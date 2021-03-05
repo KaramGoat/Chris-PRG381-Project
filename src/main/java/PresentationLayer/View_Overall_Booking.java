@@ -27,17 +27,20 @@ public class View_Overall_Booking extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btn_Edit = new javax.swing.JButton();
+        btn_Admin_Create = new javax.swing.JButton();
+        btn_Delete = new javax.swing.JButton();
+        btn_Refresh1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
+        btn_Edit.setText("Edit");
 
-        jButton2.setText("jButton2");
+        btn_Admin_Create.setText("Add Admin");
 
-        jButton3.setText("jButton3");
+        btn_Delete.setText("Delete");
+
+        btn_Refresh1.setText("Refresh");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -45,22 +48,27 @@ public class View_Overall_Booking extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(32, 32, 32)
-                .addComponent(jButton3)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_Admin_Create)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(btn_Refresh1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(213, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(75, 75, 75))
+                    .addComponent(btn_Edit)
+                    .addComponent(btn_Refresh1)
+                    .addComponent(btn_Delete))
+                .addGap(18, 18, 18)
+                .addComponent(btn_Admin_Create)
+                .addGap(35, 35, 35))
         );
 
         pack();
@@ -103,8 +111,9 @@ public class View_Overall_Booking extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btn_Admin_Create;
+    private javax.swing.JButton btn_Delete;
+    private javax.swing.JButton btn_Edit;
+    private javax.swing.JButton btn_Refresh1;
     // End of variables declaration//GEN-END:variables
 }
