@@ -134,7 +134,7 @@ public class Login_form extends javax.swing.JFrame {
             String driver = "net.ucanaccess.jdbc.UcanaccessDriver";
             Class.forName(driver);
             Connection conn = DriverManager.getConnection("jdbc:ucanaccess://DeliciousCatering.accdb");
-            String sql = "Select * from Client where UserName=? and Password=?";
+            String sql = "Select * from User where UserName=? and Password=?";
             pst = conn.prepareStatement(sql);
             pst.setString(1, username);
             pst.setString(2, password);

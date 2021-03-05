@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author Ruhan
  */
-public class Register_Form extends javax.swing.JFrame {
+public class Account_Details extends javax.swing.JFrame {
 
     
     Connection conn = null;
@@ -29,34 +29,13 @@ public class Register_Form extends javax.swing.JFrame {
     /**
      * Creates new form Register_Form
      */
-    public Register_Form() {
+    public Account_Details() {
         initComponents();
     }
     
-    public void clear()
-    {
-        
-        txt_FirstName.setText("");
-        txt_LastName.setText("");
-        txt_UserName.setText("");
-        txt_Email.setText("");
-       
-        txt_CellNum.setText("");
-        txt_BirthDate.setText("");
-        txt_NationalID.setText("");
-        txt_Password.setText("");
-        txt_ConfirmPass.setText("");
-        
-    }
     
-    public void registertodatabase()
-    {
-        try 
-        {
-            String url = "";
-        } catch (Exception e) {
-        }
-    }
+    
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,19 +46,15 @@ public class Register_Form extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_BackToLogin = new javax.swing.JButton();
+        btn_BackToMenu = new javax.swing.JButton();
         txt_UserName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         txt_Email = new javax.swing.JTextField();
         txt_CellNum = new javax.swing.JTextField();
-        txt_ConfirmPass = new javax.swing.JTextField();
-        txt_Password = new javax.swing.JTextField();
         txt_FirstName = new javax.swing.JTextField();
         txt_LastName = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -87,15 +62,14 @@ public class Register_Form extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         txt_BirthDate = new javax.swing.JTextField();
         txt_NationalID = new javax.swing.JTextField();
-        btn_Register1 = new javax.swing.JButton();
-        btn_Reset = new javax.swing.JButton();
+        btn_Edit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btn_BackToLogin.setText("Back to Login");
-        btn_BackToLogin.addActionListener(new java.awt.event.ActionListener() {
+        btn_BackToMenu.setText("Back to Login");
+        btn_BackToMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_BackToLoginActionPerformed(evt);
+                btn_BackToMenuActionPerformed(evt);
             }
         });
 
@@ -109,10 +83,6 @@ public class Register_Form extends javax.swing.JFrame {
 
         jLabel5.setText("Email :");
 
-        jLabel7.setText("Password :");
-
-        jLabel8.setText("Confirm Password :");
-
         txt_Email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_EmailActionPerformed(evt);
@@ -125,22 +95,10 @@ public class Register_Form extends javax.swing.JFrame {
             }
         });
 
-        txt_ConfirmPass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_ConfirmPassActionPerformed(evt);
-            }
-        });
-
-        txt_Password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_PasswordActionPerformed(evt);
-            }
-        });
-
         txt_FirstName.setToolTipText("");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel9.setText("Register with us");
+        jLabel9.setText("Account Details");
 
         jLabel10.setText("BirthDate :");
 
@@ -158,18 +116,10 @@ public class Register_Form extends javax.swing.JFrame {
             }
         });
 
-        btn_Register1.setText("Register");
-        btn_Register1.setActionCommand("btn_Register");
-        btn_Register1.addActionListener(new java.awt.event.ActionListener() {
+        btn_Edit.setText("Edit Account Details");
+        btn_Edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Register1ActionPerformed(evt);
-            }
-        });
-
-        btn_Reset.setText("Reset");
-        btn_Reset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ResetActionPerformed(evt);
+                btn_EditActionPerformed(evt);
             }
         });
 
@@ -178,39 +128,36 @@ public class Register_Form extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel10)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel8)
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel1)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel11))
-                                .addComponent(btn_Reset, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel10)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btn_Edit)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_FirstName)
+                            .addComponent(txt_FirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                             .addComponent(txt_LastName)
                             .addComponent(txt_UserName)
                             .addComponent(txt_Email)
-                            .addComponent(txt_Password)
-                            .addComponent(txt_ConfirmPass)
                             .addComponent(txt_NationalID)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btn_Register1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_BackToLogin))
                             .addComponent(txt_CellNum, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txt_BirthDate, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addContainerGap(51, Short.MAX_VALUE))
+                            .addComponent(txt_BirthDate, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btn_BackToMenu, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel9)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,31 +180,22 @@ public class Register_Form extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txt_Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txt_CellNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txt_BirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txt_NationalID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_CellNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_BirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txt_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txt_NationalID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txt_ConfirmPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_BackToLogin)
-                    .addComponent(btn_Register1)
-                    .addComponent(btn_Reset))
+                    .addComponent(btn_BackToMenu)
+                    .addComponent(btn_Edit))
                 .addContainerGap())
         );
 
@@ -272,62 +210,25 @@ public class Register_Form extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_CellNumActionPerformed
 
-    private void txt_ConfirmPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ConfirmPassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_ConfirmPassActionPerformed
-
-    private void txt_PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_PasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_PasswordActionPerformed
-
     private void txt_NationalIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NationalIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_NationalIDActionPerformed
 
-    private void btn_BackToLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BackToLoginActionPerformed
+    private void btn_BackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BackToMenuActionPerformed
         // TODO add your handling code here:
         
-        Login_form lf = new Login_form();
-                lf.setVisible(true);
+        Main_Menu mm = new Main_Menu();
+                mm.setVisible(true);
                 dispose();
-    }//GEN-LAST:event_btn_BackToLoginActionPerformed
+    }//GEN-LAST:event_btn_BackToMenuActionPerformed
 
-    private void btn_ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ResetActionPerformed
+    private void btn_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditActionPerformed
         // TODO add your handling code here:
-        clear();
-    }//GEN-LAST:event_btn_ResetActionPerformed
+        
+    }//GEN-LAST:event_btn_EditActionPerformed
 
     
     
-    private void btn_Register1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Register1ActionPerformed
-        // TODO add your handling code here:
-        
-        String firstname = txt_FirstName.getText();
-        String lastname = txt_LastName.getText();
-        String username = txt_UserName.getText();
-        String email = txt_Email.getText();
-        
-        String cell = txt_CellNum.getText();
-        String birthdate = txt_BirthDate.getText();
-        String id = txt_NationalID.getText();
-        String password = txt_Password.getText();
-        
-        
-        if (firstname.isEmpty() || lastname.isEmpty() || username.isEmpty() || email.isEmpty() || cell.isEmpty() || birthdate.isEmpty() || id.isEmpty() || password.isEmpty()) 
-        {
-            JOptionPane.showMessageDialog(null, "Please make sure everything is filled","Error!!", JOptionPane.ERROR_MESSAGE);
-        }
-        else
-        {
-            try {
-                clientRegister(firstname, lastname, username, email, cell, birthdate, id, password);
-            } catch (SQLException ex) {
-                Logger.getLogger(Register_Form.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-                
-    }//GEN-LAST:event_btn_Register1ActionPerformed
-
     private void txt_BirthDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_BirthDateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_BirthDateActionPerformed
@@ -349,28 +250,28 @@ public class Register_Form extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Register_Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Account_Details.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Register_Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Account_Details.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Register_Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Account_Details.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Register_Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Account_Details.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Register_Form().setVisible(true);
+                new Account_Details().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_BackToLogin;
-    private javax.swing.JButton btn_Register1;
-    private javax.swing.JButton btn_Reset;
+    private javax.swing.JButton btn_BackToMenu;
+    private javax.swing.JButton btn_Edit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -378,45 +279,16 @@ public class Register_Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txt_BirthDate;
     private javax.swing.JTextField txt_CellNum;
-    private javax.swing.JTextField txt_ConfirmPass;
     private javax.swing.JTextField txt_Email;
     private javax.swing.JTextField txt_FirstName;
     private javax.swing.JTextField txt_LastName;
     private javax.swing.JTextField txt_NationalID;
-    private javax.swing.JTextField txt_Password;
     private javax.swing.JTextField txt_UserName;
     // End of variables declaration//GEN-END:variables
 
-    private void clientRegister(String firstname, String lastname, String username, String email, String cell, String birthdate, String id, String password) throws SQLException 
-    {
-        try {
-            String driver = "net.ucanaccess.jdbc.UcanaccessDriver";
-            Class.forName(driver);
-            Connection conn = DriverManager.getConnection("jdbc:ucanaccess://DeliciousCatering.accdb");
-            String sql = "Insert Into User (Username,Password,FirstName,LastName,BirthDate,CellNum,Email,NationalID)values(?,?,?,?,?,?,?,?)";
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, username);
-            pst.setString(2, firstname);
-            pst.setString(3, lastname);
-            pst.setString(4, birthdate);
-            pst.setString(5, password);
-            pst.setString(6, cell);
-            pst.setString(7, email);
-            pst.setString(8, id);
-            
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Client info added to system","Success", JOptionPane.INFORMATION_MESSAGE);
-            
-        } catch (ClassNotFoundException ex) 
-        {
-            Logger.getLogger(Register_Form.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this,ex);
-        }
-       
-    }
+    
+    
 }
