@@ -1,0 +1,8 @@
+right click on dependency, enter the groupid, artifactid and version number then click add
+
+<!-- https://mvnrepository.com/artifact/net.sf.ucanaccess/ucanaccess -->
+<dependency>
+    <groupId>net.sf.ucanaccess</groupId>
+    <artifactId>ucanaccess</artifactId>
+    <version>5.0.1</version>
+</dependency>

@@ -8,6 +8,7 @@ import java.util.*;
 import java.time.*;    
 import java.time.format.DateTimeFormatter; 
 import BusinessLogicLayer.*;
+import java.text.SimpleDateFormat;
 /**
  *
  * @author Christopher
@@ -194,14 +195,16 @@ public class Booking
         //====
         //HERE
         //====
-        if ((cancelled == false) && (pay.amount() == i))
+     /*   if ((cancelled == false) && (pay.amount() == i))
         {
             Date1 = eventDate.toString();
             Date2 = date.toString();
 
             System.out.println(Date2);
         }
+        */
         return null;
+     
     }
     
     
