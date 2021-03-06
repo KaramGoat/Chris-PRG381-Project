@@ -33,11 +33,11 @@ public class Main_Menu extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         btn_Logout = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        btn_ViewBooking = new javax.swing.JButton();
+        btn_Viewbooking = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        btn_CreateBooking = new javax.swing.JButton();
+        btn_MakeBooking = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
+        btn_ViewAccount = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,11 +95,11 @@ public class Main_Menu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btn_ViewBooking.setBackground(new java.awt.Color(153, 153, 153));
-        btn_ViewBooking.setText("View Booking");
-        btn_ViewBooking.addActionListener(new java.awt.event.ActionListener() {
+        btn_Viewbooking.setBackground(new java.awt.Color(153, 153, 153));
+        btn_Viewbooking.setText("View booking");
+        btn_Viewbooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ViewBookingActionPerformed(evt);
+                btn_ViewbookingActionPerformed(evt);
             }
         });
 
@@ -109,22 +109,22 @@ public class Main_Menu extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_ViewBooking, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                .addComponent(btn_Viewbooking, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_ViewBooking)
+                .addComponent(btn_Viewbooking)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btn_CreateBooking.setBackground(new java.awt.Color(153, 153, 153));
-        btn_CreateBooking.setText("Make Booking");
-        btn_CreateBooking.addActionListener(new java.awt.event.ActionListener() {
+        btn_MakeBooking.setBackground(new java.awt.Color(153, 153, 153));
+        btn_MakeBooking.setText("Make Booking");
+        btn_MakeBooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_CreateBookingActionPerformed(evt);
+                btn_MakeBookingActionPerformed(evt);
             }
         });
 
@@ -134,22 +134,22 @@ public class Main_Menu extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_CreateBooking, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                .addComponent(btn_MakeBooking, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_CreateBooking)
+                .addComponent(btn_MakeBooking)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton6.setBackground(new java.awt.Color(153, 153, 153));
-        jButton6.setText("View Account");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btn_ViewAccount.setBackground(new java.awt.Color(153, 153, 153));
+        btn_ViewAccount.setText("View Account");
+        btn_ViewAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btn_ViewAccountActionPerformed(evt);
             }
         });
 
@@ -159,14 +159,14 @@ public class Main_Menu extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                .addComponent(btn_ViewAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton6)
+                .addComponent(btn_ViewAccount)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -233,32 +233,30 @@ public class Main_Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_LogoutActionPerformed
 
-    private void btn_ViewBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ViewBookingActionPerformed
+    private void btn_ViewbookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ViewbookingActionPerformed
         // TODO add your handling code here:
         
-        Client_personal_Booking_view cpbv = new Client_personal_Booking_view();
-        cpbv.setVisible(true);
+        View_Overall_Booking vob = new View_Overall_Booking();
+        vob.setVisible(true);
         dispose();
-        
-    }//GEN-LAST:event_btn_ViewBookingActionPerformed
+    }//GEN-LAST:event_btn_ViewbookingActionPerformed
 
-    private void btn_CreateBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CreateBookingActionPerformed
+    private void btn_MakeBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MakeBookingActionPerformed
         // TODO add your handling code here:
-        
         Create_Booking cb = new Create_Booking();
         cb.setVisible(true);
         dispose();
         
-    }//GEN-LAST:event_btn_CreateBookingActionPerformed
+    }//GEN-LAST:event_btn_MakeBookingActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btn_ViewAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ViewAccountActionPerformed
         // TODO add your handling code here:
         
-        Account_Details ad = new Account_Details();
-        ad.setVisible(true);
+        Account_Information ai = new Account_Information();
+        ai.setVisible(true);
         dispose();
         
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btn_ViewAccountActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,10 +294,10 @@ public class Main_Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_CreateBooking;
     private javax.swing.JButton btn_Logout;
-    private javax.swing.JButton btn_ViewBooking;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btn_MakeBooking;
+    private javax.swing.JButton btn_ViewAccount;
+    private javax.swing.JButton btn_Viewbooking;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

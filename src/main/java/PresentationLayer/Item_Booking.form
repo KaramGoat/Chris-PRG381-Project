@@ -82,9 +82,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="cb_ProductList" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel2" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
-                  <Component id="lbl_Description" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="lbl_Description" min="-2" pref="46" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">

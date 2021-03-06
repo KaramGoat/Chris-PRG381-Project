@@ -8,6 +8,9 @@ import java.util.*;
 import java.time.*;    
 import java.time.format.DateTimeFormatter; 
 import BusinessLogicLayer.*;
+import DataAccessLayer.DataHandler;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 /**
  *
@@ -179,23 +182,222 @@ public class Booking
         this.labourCost = labourCost;
         this.cancelled = cancelled;
     }
+    
+    public Booking(int userID, double budget, String type, String theme, String comments, Date eventDate, String venueAddress, String venueRegion, String venuecity, int numAdults, int numKids, int bookingNum, double transportCost, double labourCost, boolean cancelled) {
+        this.userID = userID;
+        this.budget = budget;
+        this.type = type;
+        this.theme = theme;
+        this.comments = comments;
+        this.eventDate = eventDate;
+        this.venueAddress = venueAddress;
+        this.venueRegion = venueRegion;
+        this.venuecity = venuecity;
+        this.numAdults = numAdults;
+        this.numKids = numKids;
+        this.bookingNum = bookingNum;
+        this.transportCost = transportCost;
+        this.labourCost = labourCost;
+        this.cancelled = cancelled;
+    }
 
     public Booking() {
+        
     }
     
+    public List<Booking> GetBookingsWithSelectStatement(String selectStatement) throws SQLException
+    {
+        DataHandler dataHandler = new DataHandler();
+        List<Booking> bookings = new ArrayList<Booking>();
+        ResultSet rs = dataHandler.GetQueryResultSet(selectStatement);
+        //System.out.println("Check if is before fisrt...");
+        
+        //rs.beforeFirst();
+        if (!rs.isBeforeFirst()) {
+            return bookings;
+        }
+        else{
+            while (rs.next()) {
+                bookings.add(new Booking(rs.getInt("BookingID"),rs.getInt("UserID"),rs.getDouble("Budget"),rs.getString("Type"),rs.getString("Theme"),rs.getString("Comments"),rs.getDate("EventDate"),rs.getString("VenueAddress"),rs.getString("VenueRegion"),rs.getString("VenueCity"),rs.getInt("NumAdults"),rs.getInt("NumKids"),rs.getInt("BookingNum"),rs.getDouble("TransportPrice"),rs.getDouble("LabourPrice"),rs.getBoolean("Cancelled")));
+                //System.out.println("Added User");
+            }
+            return bookings; 
+        }      
+    }
+    
+    public List<Booking> GetBookings() throws SQLException
+    {      
+        return GetBookingsWithSelectStatement("SELECT * FROM Booking");
+    }
+    
+    public List<Booking> GetBookingsByUserID(int userID) throws SQLException{
+        return  GetBookingsWithSelectStatement("SELECT * FROM Booking WHERE UserID="+userID);  
+    }
+    
+    public List<Booking> GetConfirmedBookings() throws SQLException{       
+        List<Booking> allBookings = GetBookings();
+        List<Booking> confirmedBookings = new ArrayList<Booking>();
+        for (var booking:allBookings) {
+            if (booking.IsBookingConfirmed()) {
+                confirmedBookings.add(booking);
+            }
+        }
+        return  confirmedBookings;
+    }
+    
+    public List<Booking> GetUnConfirmedBookings() throws SQLException{       
+        List<Booking> allBookings = GetBookings();
+        List<Booking> nonConfirmedBookings = new ArrayList<Booking>();
+        for (var booking:allBookings) {
+            if (!booking.IsBookingConfirmed()) {
+                nonConfirmedBookings.add(booking);
+            }
+        }
+        return  nonConfirmedBookings;
+    }
+    
+    public boolean IsBookingConfirmed() throws SQLException{
+        double price = GetTotalPriceThisBooking();
+        double payments = GetTotalPaymentsMadeForThisBooking();
+        int daysUntilEvent = GetDaysBeforeThisBooking();
+        if ((payments/price>=0.5 && daysUntilEvent>=15) || (cancelled==false && daysUntilEvent<15)) {    //The booking can only beconsidered confirmed if at least half of the total price is paid 
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    
+    
+    public void CancelBookingInDataBase(){
+        DataHandler dataHandler = new DataHandler();
+        //Start from UserName since the database automatically increments the ClientID
+        String insertStatement = String.format("UPDATE Booking SET Cancelled = %b WHERE BookingID=%d)",true, bookingID);
+        dataHandler.ExecuteNonQuery(insertStatement);
+        
+    }
+    
+    public int GetDaysBeforeBooking(int bookingID) throws SQLException{
+        DataHandler dataHandler = new DataHandler();
+        ResultSet rs = dataHandler.GetQueryResultSet("SELECT BookingID, DATEDIFF(\"d\",Date(),EventDate) AS DaysUntil FROM Booking WHERE BookingID="+bookingID);
+        rs.next();               
+        return rs.getInt("DaysUntil");
+    }
+    
+    public int GetDaysBeforeThisBooking() throws SQLException{
+        DataHandler dataHandler = new DataHandler();
+        ResultSet rs = dataHandler.GetQueryResultSet("SELECT BookingID, DATEDIFF(\"d\",Date(),EventDate) AS DaysUntil FROM Booking WHERE BookingID="+bookingID);
+        rs.next();               
+        return rs.getInt("DaysUntil");
+    }
+    
+    public double GetTotalPriceBooking(int bookingID) throws SQLException{
+        DataHandler dataHandler = new DataHandler();
+        ResultSet rs = dataHandler.GetQueryResultSet("SELECT SubTotalPrice + LabourPrice + TransportPrice AS TotalPrice\n" +
+            "FROM (SELECT Booking.BookingID, Sum(SellableItem.UnitPrice*BookingSellableItem.Quantity*(1-BookingSellableItem.Discount)) AS SubTotalPrice\n" +
+            "FROM SellableItem INNER JOIN ((Booking INNER JOIN BookingSellableItem ON Booking.BookingID = BookingSellableItem.BookingID) INNER JOIN Payment ON Booking.BookingID = Payment.BookingID) ON SellableItem.SellableItemID = BookingSellableItem.SellableItemID\n" +
+            "GROUP BY Booking.BookingID)  AS SubTotals INNER JOIN Booking ON Booking.BookingID=SubTotals.BookingID WHERE BookingID="+bookingID);
+        rs.next();               
+        return rs.getDouble("TotalPrice");
+    }
+    
+    public double GetTotalPriceThisBooking() throws SQLException{
+        DataHandler dataHandler = new DataHandler();
+        ResultSet rs = dataHandler.GetQueryResultSet("SELECT SubTotalPrice + LabourPrice + TransportPrice AS TotalPrice\n" +
+            "FROM (SELECT Booking.BookingID, Sum(SellableItem.UnitPrice*BookingSellableItem.Quantity*(1-BookingSellableItem.Discount)) AS SubTotalPrice\n" +
+            "FROM SellableItem INNER JOIN ((Booking INNER JOIN BookingSellableItem ON Booking.BookingID = BookingSellableItem.BookingID) INNER JOIN Payment ON Booking.BookingID = Payment.BookingID) ON SellableItem.SellableItemID = BookingSellableItem.SellableItemID\n" +
+            "GROUP BY Booking.BookingID)  AS SubTotals INNER JOIN Booking ON Booking.BookingID=SubTotals.BookingID WHERE BookingID="+bookingID);
+        rs.next();               
+        return rs.getDouble("TotalPrice");
+    }
+    
+    
+    public double GetTotalPaymentsMadeForBooking(int bookingID) throws SQLException{
+        DataHandler dataHandler = new DataHandler();
+        ResultSet rs = dataHandler.GetQueryResultSet("SELECT SUM(Amount) AS TotalPaid\n" +
+            "FROM Booking AS b INNER JOIN Payment AS p ON b.BookingID=p.BookingID\n" +
+            "WHERE b.BookingID="+bookingID+
+            " GROUP BY b.BookingID");
+        rs.next();               
+        return rs.getDouble("TotalPaid");
+    }
+    
+    public double GetTotalPaymentsMadeForThisBooking() throws SQLException{
+        DataHandler dataHandler = new DataHandler();
+        ResultSet rs = dataHandler.GetQueryResultSet("SELECT SUM(Amount) AS TotalPaid\n" +
+            "FROM Booking AS b INNER JOIN Payment AS p ON b.BookingID=p.BookingID\n" +
+            "WHERE b.BookingID="+bookingID+
+            " GROUP BY b.BookingID");
+        rs.next();               
+        return rs.getDouble("TotalPaid");
+    }
+    
+    public boolean AddToDatabase() throws SQLException{
+        DataHandler dataHandler = new DataHandler();
+        //Start from UserName since the database automatically increments the ClientID
+        String insertStatement = String.format("INSERT INTO Booking (UserID, Budget, Type, Theme, Comments, EventDate, VenueAddress, VenueRegion), VenueCity, NumAdults, NumKids, BookingNum, TransportPrice, LabourPrice, Cancelled VALUES(%d, %f,'%s','%s','%s','%tF','%s','%s','%s', %d, %d, %d, %f, %b)", userID, budget, type, theme, comments, eventDate, venueAddress, venueRegion, venuecity,numAdults,numKids,bookingNum,transportCost, labourCost, cancelled);
+        boolean querySuccessful = dataHandler.ExecuteNonQuery(insertStatement);
+        if (querySuccessful) {
+           return true; 
+        }
+        else{
+            System.out.println("Could not perform row insertion");
+            return false;
+        }
+    }
+    
+     public boolean UpdateInDataBase(){
+        DataHandler dataHandler = new DataHandler();
+        //Start from UserName since the database automatically increments the ClientID
+        String insertStatement = String.format("UPDATE Booking SET UserID= %d ,Budget= %f , Type = '%s', Theme='%s', Comments='%s', EventDate='%tF',VenueAddress='%s',VenueRegion='%s',VenueCity='%s',NumAdults='%s', NumKids='%s' , BookingNum= %d, TransportPrice= %f , LabourPrice= %f , Cancelled = %b WHERE BookingID=%d)", userID, budget, type, theme, comments, eventDate, venueAddress, venueRegion, venuecity,numAdults,numKids,bookingNum,transportCost, labourCost, cancelled, bookingID);
+        boolean querySuccessful = dataHandler.ExecuteNonQuery(insertStatement);
+        if (querySuccessful) {
+           return true; 
+        }
+        else{
+            return false;
+        }
+        
+    }
+     
+     public boolean DeleteInDatabase() throws SQLException{
+        DataHandler dataHandler = new DataHandler();
+        List<Booking> usersWithUserID = GetBookingsWithSelectStatement(String.format("SELECT * FROM Booking WHERE BookingID=%d",bookingID));
+        if (usersWithUserID.size()!=0) {
+            String deleteStatement = String.format("DELETE FROM Booking WHERE BookingID=%d)", bookingID);
+            boolean querySuccessful = dataHandler.ExecuteNonQuery(deleteStatement);
+            if (querySuccessful) {
+                System.out.println("Row deletion successfull");
+                return true; 
+            }
+            else{
+                System.out.println("Could not perform row deletion");
+                return false;
+            }
+        }
+        else{
+            System.out.println("No rows to delete with BookingID of"+bookingID);
+            return false;
+        }
+  
+    }
+
+    // Kyle add code what you need
     public String  ValidDate()
     {
         //???????????????????
+        /*
         Payment pay;
         String Date1, Date2;
         SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date(System.currentTimeMillis());
-
+        
 
         //====
         //HERE
         //====
-     /*   if ((cancelled == false) && (pay.amount() == i))
+        //if ((cancelled == false) && (pay.amount() == i))
         {
             Date1 = eventDate.toString();
             Date2 = date.toString();
@@ -204,7 +406,6 @@ public class Booking
         }
         */
         return null;
-     
     }
     
     
