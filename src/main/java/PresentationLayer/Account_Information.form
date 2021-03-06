@@ -8,6 +8,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -23,12 +26,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jPanel4" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel3" max="32767" attributes="0"/>
+                  <Component id="jPanel4" alignment="1" max="32767" attributes="0"/>
                   <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -220,19 +223,11 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="60" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="318" max="-2" attributes="0"/>
+                  <Component id="btn_Changes" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" pref="60" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton3" min="-2" pref="60" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton4" min="-2" pref="60" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton6" min="-2" pref="91" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btn_MainMenu" min="-2" pref="91" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -241,12 +236,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_Changes" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_MainMenu" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -254,40 +245,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="&lt; |"/>
-          </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="btnFirst"/>
-            <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="&lt; &lt;"/>
-          </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="btnNext"/>
-          </AccessibilityProperties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="&gt; &gt;"/>
-          </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="btnPreviouse"/>
-          </AccessibilityProperties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="| &gt;"/>
-          </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="btnLast"/>
-          </AccessibilityProperties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton5">
+        <Component class="javax.swing.JButton" name="btn_Changes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Make changes"/>
           </Properties>
@@ -295,16 +253,19 @@
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="btnChanges"/>
           </AccessibilityProperties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_ChangesActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton6">
+        <Component class="javax.swing.JButton" name="btn_MainMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Main Menu"/>
           </Properties>
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="btnMainM"/>
           </AccessibilityProperties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_MainMenuActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -325,21 +286,22 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jPanel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="txtName" min="-2" pref="65" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="txtLName" min="-2" pref="65" max="-2" attributes="0"/>
-                      </Group>
                       <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fmfBirth" max="32767" attributes="0"/>
+                          <Component id="ftxt_Birthdate" pref="73" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txt_FirstName" max="32767" attributes="0"/>
+                              <Component id="txt_LastName" min="-2" pref="65" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -354,33 +316,24 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtAddress" min="-2" pref="65" max="-2" attributes="0"/>
-                              <Component id="txtCell" min="-2" pref="65" max="-2" attributes="0"/>
+                              <Component id="txt_Email" min="-2" pref="65" max="-2" attributes="0"/>
+                              <Component id="txt_CellNum" min="-2" pref="65" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtPass" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="txtConPass" min="-2" pref="65" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="txt_Password" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="txtID" min="-2" pref="65" max="-2" attributes="0"/>
+                          <Component id="txt_NationalID" min="-2" pref="65" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btnSaveChanges" max="32767" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
+                              <Group type="102" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtUsername" min="-2" pref="65" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="txt_UserName" min="-2" pref="74" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -397,35 +350,33 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_FirstName" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtPass" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCell" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_Password" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_CellNum" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtLName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_LastName" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtAddress" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtConPass" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_Email" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fmfBirth" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ftxt_Birthdate" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtID" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtUsername" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txt_NationalID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txt_UserName" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="39" max="32767" attributes="0"/>
+                          <EmptySpace pref="36" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
@@ -479,7 +430,7 @@
             <Property name="text" type="java.lang.String" value="Name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtName">
+        <Component class="javax.swing.JTextField" name="txt_FirstName">
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="txtName"/>
           </AccessibilityProperties>
@@ -492,7 +443,7 @@
             <Property name="text" type="java.lang.String" value="Surname"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtLName">
+        <Component class="javax.swing.JTextField" name="txt_LastName">
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="txtLname"/>
           </AccessibilityProperties>
@@ -518,7 +469,7 @@
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="lblBirth"/>
           </AccessibilityProperties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="fmfBirth">
+        <Component class="javax.swing.JFormattedTextField" name="ftxt_Birthdate">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
               <Format subtype="1" type="1"/>
@@ -552,12 +503,12 @@
             <Property name="text" type="java.lang.String" value="National ID number"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtAddress">
+        <Component class="javax.swing.JTextField" name="txt_Email">
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="txtEmail"/>
           </AccessibilityProperties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtID">
+        <Component class="javax.swing.JTextField" name="txt_NationalID">
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="txtID"/>
           </AccessibilityProperties>
@@ -570,24 +521,11 @@
             <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel10">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Confirm Password"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="txt_CellNum">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCell">
-        </Component>
-        <Component class="javax.swing.JPasswordField" name="txtPass">
+        <Component class="javax.swing.JPasswordField" name="txt_Password">
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Ptxt"/>
-          </AccessibilityProperties>
-        </Component>
-        <Component class="javax.swing.JPasswordField" name="txtConPass">
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="PtxtConfirm"/>
           </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JButton" name="btnSaveChanges">
@@ -609,7 +547,7 @@
             <Property name="text" type="java.lang.String" value="Username"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtUsername">
+        <Component class="javax.swing.JTextField" name="txt_UserName">
         </Component>
       </SubComponents>
     </Container>

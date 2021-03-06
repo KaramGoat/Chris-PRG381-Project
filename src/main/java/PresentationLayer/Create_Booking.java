@@ -265,7 +265,7 @@ public class Create_Booking extends javax.swing.JFrame {
         Integer myint1 = (Integer) sp_Kids.getValue();
         Integer myint2 = myint+myint1;
         spinner = myint2.toString();
-        txt_City.setText(spinner);
+        txt_totalofpeople2.setText(spinner);
         
             
         

@@ -251,11 +251,9 @@ public class Main_Menu extends javax.swing.JFrame {
 
     private void btn_ViewAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ViewAccountActionPerformed
         // TODO add your handling code here:
-        
         Account_Information ai = new Account_Information();
         ai.setVisible(true);
         dispose();
-        
     }//GEN-LAST:event_btn_ViewAccountActionPerformed
 
     /**
