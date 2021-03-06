@@ -168,7 +168,7 @@ public class User
         DataHandler dataHandler = new DataHandler();
         List<User> users = new ArrayList<User>();
         ResultSet rs = dataHandler.GetQueryResultSet(selectStatement);
-        if (rs.isBeforeFirst()) {
+        if (!rs.isBeforeFirst()) {
             return users;
         }
         else{
@@ -295,7 +295,7 @@ public class User
     public boolean IsUserNamePasswordUnique() throws SQLException{
         DataHandler dataHandler = new DataHandler();     
         ResultSet rs = dataHandler.GetQueryResultSet(String.format("SELECT * FROM User WHERE UserName='%s' AND Password='%s'",userName,password));
-        if (rs.isBeforeFirst()) { //isbefore first returns false if there are no rows in the resultset
+        if (!rs.isBeforeFirst()) { //isbefore first returns false if there are no rows in the resultset
             
             return true;
         }

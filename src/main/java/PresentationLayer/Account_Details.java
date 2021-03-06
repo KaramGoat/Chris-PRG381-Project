@@ -66,7 +66,7 @@ public class Account_Details extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btn_BackToMenu.setText("Back to Login");
+        btn_BackToMenu.setText("Back to Menu");
         btn_BackToMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_BackToMenuActionPerformed(evt);
