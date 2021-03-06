@@ -5,6 +5,9 @@
  */
 package BusinessLogicLayer;
 import java.util.*;
+import java.time.*;    
+import java.time.format.DateTimeFormatter; 
+import BusinessLogicLayer.*;
 /**
  *
  * @author Christopher
@@ -177,6 +180,28 @@ public class Booking
     }
 
     public Booking() {
+    }
+    
+    public String  ValidDate()
+    {
+        //???????????????????
+        Payment pay;
+        String Date1, Date2;
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date(System.currentTimeMillis());
+
+
+        //====
+        //HERE
+        //====
+        if ((cancelled == false) && (pay.amount() == i))
+        {
+            Date1 = eventDate.toString();
+            Date2 = date.toString();
+
+            System.out.println(Date2);
+        }
+        return null;
     }
     
     
